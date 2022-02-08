@@ -35,7 +35,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://test-django-43.herokuapp.com/','127.0.0.1', 'localhost','https://planet-pals-server.herokuapp.com/']
+ALLOWED_HOSTS = ['https://lap4project.herokuapp.com/','127.0.0.1', 'localhost','https://planet-pals-server.herokuapp.com/']
 
 
 # Application definition
@@ -91,8 +91,12 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dblumrev6q9buf',
+        'HOST': 'ec2-52-214-125-106.eu-west-1.compute.amazonaws.com',
+        'USER': 'ikmrqhnfesweyc',
+        'PASSWORD': '6a1e4c2b78f559e82b23900a31038908ee317668e459a1a1bc0121dd92c6d73f',
+        'PORT': '5432',
     }
 }
 
@@ -131,7 +135,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = "/static/"
+django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -156,4 +162,3 @@ REST_FRAMEWORK = {
 }
 
 
-# django_heroku.settings(locals())
