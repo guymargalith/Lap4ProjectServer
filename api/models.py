@@ -16,7 +16,7 @@ from django.contrib.auth.models import User
 
 class Competition(models.Model):
     id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=120, unique=True)
+    name = models.CharField(max_length=120)
     description = models.CharField(max_length=500)
     units = models.CharField(max_length=100)
     frequency = models.CharField(max_length=100)
