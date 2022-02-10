@@ -40,7 +40,7 @@ class CompetitionView(viewsets.ModelViewSet):
     @action(detail=False, methods=['post'] )
     def user_comps(self, request):
         print(request)
-        competitions=Competition.objects.filter(scores__user_id= request.data.get('user_id'))
+        competitions=Competition.objects.filter(scores__user_id= request.data.get('user_id')).order_by('-scores__last_updated')
 
         print(competitions)
         page = self.paginate_queryset(competitions)
