@@ -24,7 +24,6 @@ router = DefaultRouter()
 router.register(r'users', UserView, basename='user')
 router.register(r'competitions', CompetitionView, basename='competitions')
 router.register(r'scores', ScoreView, basename='scores')
-# router.register(r'register', RegisterAPI, basename='register')
 
 urlpatterns = [
     path('register/', RegisterAPI.as_view(), name='register'),
@@ -33,7 +32,3 @@ urlpatterns = [
     path('logoutall/', knox_views.LogoutAllView.as_view(), name='logoutall'),
 ]
 urlpatterns += router.urls
-# urlpatterns = [
-#     path('admin/', admin.site.urls),
-#     path('', include('api.urls'))
-# ]
