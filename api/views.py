@@ -75,7 +75,7 @@ class CompetitionView(viewsets.ModelViewSet):
 
     @action(detail=False, methods=['get'], permission_classes=[AllowAny])
     def public(self, request):
-        competitions = Competition.objects.filter(type_of_competition = 2)
+        competitions = Competition.objects.filter(type_of_competition = 2).order_by('-id')
         page = self.paginate_queryset(competitions)
         if page is not None:
             serializer = self.get_serializer(page, many=True)
